@@ -19,7 +19,7 @@ export class DomListener {
             if (!this[method]) {
                 throw new Error(`Произошла ошибка.В компоненте ${this.name} нету метода ${method}`)
             }
-            this[method] = this[method].bind()
+            this[method] = this[method].bind(this)
             this.$root.on(listener, this[method])
         })
     }
