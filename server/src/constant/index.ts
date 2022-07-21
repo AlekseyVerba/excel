@@ -1,0 +1,1 @@
+export const NAME_FOR_NEW_TABLE = "Новая таблица"

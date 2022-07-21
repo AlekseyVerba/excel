@@ -1,0 +1,32 @@
+.form {
+    max-width: 500px;
+    margin: 0 auto;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 100%;
+    padding: 0 20px;
+    text-align: center;
+    input {
+        width: 100%;
+    }
+}
+
+.form__form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__inform {
+    font-size: 25px;
+    display: none;
+    &--success {
+        color: rgb(72, 211, 72);
+        display: block;
+    }
+    &--error {
+        display: block;
+        color: rgb(168, 20, 20);
+    }
+}

@@ -1,0 +1,137 @@
+@import "variables";
+@import "mixins";
+
+.excel__table {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: $header-height + $toolbar-height + $formula-height;
+  overflow-x: auto;
+  padding-bottom: 2px;
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    min-height: 20px;
+
+    height: $row-height;
+  }
+
+  .row-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: $info-cell-width;
+    height: 100%;
+    border: 1px solid $border-color;
+    position: relative;
+    background: #f8f9fa;
+    border-top: none;
+  }
+
+  .row-data {
+    display: flex;
+  }
+
+  .column {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f8f9fa;
+    min-width: 40px;
+    width: $cell-width;
+    border: 1px solid $border-color;
+    border-top: 0;
+    border-left: 0;
+    height: 100%;
+  }
+
+  .column, .row-info {
+    position: relative;
+  }
+
+  .row__resize, .column__resize {
+    position: absolute;
+    bottom: 0;
+    background: $color-selected;
+    right: 0;
+    opacity: 0;
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .column__resize {
+    top: 0;
+    width: 4px;
+    cursor: col-resize;
+  }
+
+  .row__resize {
+    left: 0;
+    height: 4px;
+    cursor: row-resize;
+  }
+
+
+  .element--resize {
+    .row__resize, .column__resize {
+      opacity: 1;
+    }
+  }
+  
+
+  .cell {
+    min-width: 40px;
+    padding: 5px;
+    width: $cell-width;
+    height: 100%;
+    border: 1px solid #e2e3e3;
+    border-top: 0;
+    border-left: 0;
+    color: #111;
+    white-space: nowrap;
+    outline: none;
+
+
+    &.selected {
+      border: none;
+      outline: 2px solid $color-selected;
+      z-index: 2;
+    }
+  }
+
+  .line {
+    position: absolute;
+    opacity: 0;
+    background: $color-selected;
+    &--column {
+      top: 0;
+      right: 0;
+      width: 3px;
+      height: 100%;
+      cursor: col-resize;
+      &--active {
+        opacity: 1;
+        height: 1000px;
+      }
+    }
+    &--row {
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      width: 100%;
+      cursor: row-resize;
+      &--active {
+        opacity: 1;
+        width: 3000px;
+      }
+    }
+    &:hover {
+      opacity: 1;
+    }
+    
+  }
+
+}
